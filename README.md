@@ -5,14 +5,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This project is a quick attempt to build the front end of an existing ASP.NET Core application in Angular with no changes to the backend application, except for the creation of an API to let the front end app communicate with the backend.
 
-Exiting project: https://github.com/StephaneChevassus/URLShortener
-Live Demo: https://urlshortenerwebsite.azurewebsites.net
+**Exiting project:** https://github.com/StephaneChevassus/URLShortener
+
+**Live Demo:** https://urlshortenerwebsite.azurewebsites.net
 
 For the purpose of this SAP, I've added an API endpoint to the URLShortener project in order to retrieve and post data. CORS has also been setup.
 
-Live Endpoint: https://urlshortenerwebsite.azurewebsites.net/api/shorturls
+**Live Endpoint:** https://urlshortenerwebsite.azurewebsites.net/api/shorturls
 
-Live Demo Angular Application: http://urlshortener-angular.s3-website-ap-southeast-2.amazonaws.com
+**Live Demo Angular Application:** http://urlshortener-angular.s3-website-ap-southeast-2.amazonaws.com
 
 Being a demo, the API is not restricted at all. All data currently stored can be fetched by anyone.
 
