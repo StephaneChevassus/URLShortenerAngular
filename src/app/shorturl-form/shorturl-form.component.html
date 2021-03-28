@@ -1,0 +1,38 @@
+<h5>Welcome to URL Shortener!</h5>
+<hr />
+<section>
+    <form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+        <div class="form-group row">
+            <label class="col-xl-2 col-form-label">Enter your URL:</label>
+            <div class="col-md-8">
+                <input class="form-control" placeholder="" name="url" #url="ngModel" [(ngModel)]="service.formData.url"
+                    required pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$"
+                    [class.invalid]="url.invalid && url.touched" />
+                <span *ngIf="url.invalid && (url.dirty || url.touched)" class="text-danger">
+                    <span *ngIf="url.errors?.required">The URL field is required.</span>
+                    <span *ngIf="url.errors?.pattern">URL is invalid.</span>
+                </span>
+            </div>
+        </div>
+
+        <label>Enter a custom alias (Optional)</label>
+
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="aliasHelp">https://urlshortenerwebsite.azurewebsites.net</span>
+            </div>
+            <input class="col-4 form-control" placeholder="CustomAlias" name="alias" #alias="ngModel"
+                [(ngModel)]="service.formData.alias" maxlength="20" minlength="1" pattern="^[a-zA-Z0-9]*$"
+                [class.invalid]="alias.invalid && alias.touched" />
+        </div>
+        <div class="mb-3">
+            <small id="aliasHelp" class="form-text text-muted">May only contain letters and numbers</small>
+            <span *ngIf="alias.invalid && (alias.dirty || alias.touched)" class="text-danger">
+                <p *ngIf="alias.errors?.pattern">Alias contains illegal characters.</p>
+                <p *ngIf="alias.errors?.serverError">{{alias.errors?.serverError}}</p>
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Shorten URL</button>
+    </form>
+</section>

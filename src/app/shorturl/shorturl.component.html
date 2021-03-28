@@ -1,0 +1,33 @@
+<h5>Short URLs</h5>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Alias
+            </th>
+            <th>
+                Long URL
+            </th>
+            <th>
+                Short URL
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let su of service.list?.slice()?.reverse()">
+                <td>
+                    <label class="col-form-label">{{su.alias}}</label>
+
+                </td>
+                <td class="col">
+                    <input type="text" readonly class="form-control-plaintext" value="{{su.url}}">
+                </td>
+                <td class="col">
+                    <label class="col-form-label">
+                        <a href="https://urlshortenerwebsite.azurewebsites.net/{{su.alias}}">https://urlshortenerwebsite.azurewebsites.net/{{su.alias}}</a>
+                    </label>
+                </td>
+            </tr>
+    </tbody>
+</table>
